@@ -1,0 +1,6 @@
+# dependencies
+node_modules
+*.log
+.vscode
+.prettierrc
+package-lock.json
