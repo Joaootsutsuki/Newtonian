@@ -18,20 +18,14 @@ function createWindow() {
         },
     });
 
-    app.allowRendererProcessReuse = true;
-    win.loadFile('index.html');
-
-    // CLOSE APP
     ipc.on('closeApp', function (event) {
         win.close();
     });
 
-    // MINIMIZE APP
     ipc.on('minimizeApp', function (event) {
         win.minimize();
     });
 
-    // MAXIZIME AND RESTORE APP
     ipc.on('maximizeRestoreApp', function (event) {
         if (win.isMaximized()) {
             win.restore();
@@ -39,5 +33,9 @@ function createWindow() {
             win.maximize();
         }
     });
+    
+    win.setAspectRatio(1.6);
+    win.loadFile('index.html');
 }
-app.on('ready', createWindow);
+
+app.whenReady().then(createWindow);

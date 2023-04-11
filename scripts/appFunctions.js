@@ -1,7 +1,8 @@
 import createElements from './defaultElements.js';
-const electron = require('electron');
+/*const electron = require('electron');
 const shell = electron.shell;
 const ipc = electron.ipcRenderer;
+*/
 window.addEventListener('load', createElements());
 const minimizeBtn = document.querySelector('#minBtn');
 const maximizeBtn = document.querySelector('#maxBtn');
