@@ -1,6 +1,8 @@
 const canvas = document.querySelector('canvas');
+const menuButton = document.getElementById('toggle');
 const ctx = canvas.getContext('2d');
 
+console.log(canvas, menuButton)
 function resizeDraws() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
@@ -9,33 +11,37 @@ function resizeDraws() {
 }
 
 function drawTriangle() {
-    const aspectRatioX = 0.6451612903;
-    const aspectRatioY = 0.61573;
+    const aspectRatioX = 0.7018; 
+    const aspectRatioY = 0.6157;
+    const degreesAlfa = 30;
+    const radiansAlfa = degreesAlfa * (Math.PI / 180);
+    const base = canvas.width * aspectRatioX
+
+
     const triangle = {
-        oppositeLeg: {
-            startX: 0,
-            startY: 0,
-            endX: 0,
-            endY: canvas.height * aspectRatioY,
-            size: canvas.height * aspectRatioY,
-        },
         adjacentLeg: {
             startX: 0,
             startY: canvas.height * aspectRatioY,
             endX: canvas.width * aspectRatioX,
             endY: canvas.height * aspectRatioY,
-            size: canvas.width * aspectRatioX,
+            length: base,
+        },
+        oppositeLeg: {
+            startX: 0,
+            startY: 0,
+            endX: 0,
+            endY: canvas.height * aspectRatioY,
+            length: base * Math.tan(radiansAlfa)
         },
         hypotenuse: {
             startX: 0,
             startY: 0,
             endX: canvas.width * aspectRatioX,
             endY: canvas.height * aspectRatioY,
-            size() {
-                return Math.sqrt(triangle.oppositeLeg.size ** 2 + triangle.adjacentLeg.size ** 2);
-            },
+            length: base / Math.cos(radiansAlfa)
         },
     };
+
     for (const key in triangle) {
         const line = triangle[key];
         ctx.beginPath();
@@ -43,23 +49,25 @@ function drawTriangle() {
         ctx.lineTo(line.endX, line.endY);
         ctx.stroke();
     }
+
+
     /*
-    
-    console.log(alfa);
     ctx.beginPath();
-    ctx.arc(
-        line3.endX,
-        line3.endY,
-        500,
-        ((180 + alfa) * Math.PI) / 180,
-        (180 * Math.PI) / 180,
-        true
-    );
-    ctx.stroke();*/
-    const alfa = (Math.sin(triangle.oppositeLeg.size / 461, 9) * 180) / Math.PI;
-    console.log(alfa);
+    ctx.arc(triangle.hypotenuse.endX, triangle.hypotenuse.endY, 70, ((180 + degreesAlfa) * Math.PI) / 180, Math.PI, true);
+    ctx.stroke();*//*
+    console.log("Width: " + canvas.width + " Height: " + canvas.height)
+    console.log("Opposite Leg length: " + triangle.oppositeLeg.length)
+    console.log("Adjacent Leg length: " + triangle.adjacentLeg.length)
+    console.log("Hypotenuse length: " + triangle.hypotenuse.length)*/
+
+
 }
 window.addEventListener('resize', () => {
     resizeDraws();
+    console.log("sx")
 });
+/*menuButton.addEventListener('click', () => {
+    resizeDraws();
+    console.log("sx")
+})*/
 resizeDraws();

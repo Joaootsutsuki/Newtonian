@@ -36,9 +36,9 @@ maximizeBtn.addEventListener('click', function () {
 
 window.addEventListener('load', () => {
     const pathname = window.location.pathname;
-    body.classList[localStorage.getItem('white')]('white');
+    /*body.classList[localStorage.getItem('white')]('white');
     sidebar.classList[localStorage.getItem('close')]('close');
-    mainApp.classList[localStorage.getItem('close')]('close');
+    mainApp.classList[localStorage.getItem('close')]('close');*/
     graficos.checked = true;
     if (pathname == '/equations.html') {
         equacoes.checked = true;
