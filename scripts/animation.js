@@ -45,7 +45,7 @@ function drawTriangle() {
     }
     /*
     
-    console.log(alfa);
+    console.log(alfa)
     ctx.beginPath();
     ctx.arc(
         line3.endX,
