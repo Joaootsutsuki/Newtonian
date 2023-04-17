@@ -1,9 +1,8 @@
-import createElements from './defaultElements.js';
 /*const electron = require('electron');
 const shell = electron.shell;
 const ipc = electron.ipcRenderer;
 */
-window.addEventListener('load', createElements());
+
 const minimizeBtn = document.querySelector('#minBtn');
 const maximizeBtn = document.querySelector('#maxBtn');
 const closeBtn = document.querySelector('#closeBtn');
@@ -36,15 +35,10 @@ maximizeBtn.addEventListener('click', function () {
 
 window.addEventListener('load', () => {
     const pathname = window.location.pathname;
-    /*body.classList[localStorage.getItem('white')]('white');
+    body.classList[localStorage.getItem('white')]('white');
     sidebar.classList[localStorage.getItem('close')]('close');
-    mainApp.classList[localStorage.getItem('close')]('close');*/
+    mainApp.classList[localStorage.getItem('close')]('close');
     graficos.checked = true;
-    if (pathname == '/equations.html') {
-        equacoes.checked = true;
-    } else if (pathname == '/about.html') {
-        sobre.checked = true;
-    }
 });
 
 toggle.addEventListener('click', () => {
@@ -71,15 +65,6 @@ modeSwitch.addEventListener('click', () => {
     }
 });
 
-graficos.addEventListener('click', () => {
-    window.location.pathname = '../index.html';
-});
-equacoes.addEventListener('click', () => {
-    window.location.pathname = '../equations.html';
-});
-sobre.addEventListener('click', () => {
-    window.location.pathname = '../about.html';
-});
 /*
 instagram.addEventListener('click', () => {
     shell.openExternal('https://www.instagram.com/joao_vitosoaski/');

@@ -33,7 +33,6 @@ function createWindow() {
             win.maximize();
         }
     });
-    
     win.setAspectRatio(1.6);
     win.loadFile('index.html');
 }

@@ -4,12 +4,13 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles/app-style.css" />
-        <title>Projeto | Newtonian</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <title><%- title %></title>
     </head>
     <body>
         <div class="mainApp close" id="mainApp">
-            <my-template></my-template>
+            <%- include('../views/partials/menubar.ejs')%> <%-
+            include('../views/partials/navbar.ejs')%>
             <div class="about-content">
                 <div class="about-title"><h1>Bem Vindo!</h1></div>
                 <div class="about-me">
@@ -21,9 +22,9 @@
                         e desde então procuro me profissionalizar na área de tecnologia/programação.
                     </p>
                 </div>
-                <div class="myImg"><img src="imgs/foto.svg" alt="Minha Selfie" /></div>
+                <div class="myImg"><img src="images/foto.svg" alt="Minha Selfie" /></div>
                 <div class="appleImg">
-                    <img src="imgs/logotipo.png" alt="Logotipo" />
+                    <img src="images/logotipo.png" alt="Logotipo" />
                 </div>
                 <div class="about-newtonian">
                     <h2>Newtonian</h2>
