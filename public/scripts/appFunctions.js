@@ -1,7 +1,7 @@
-/*const electron = require('electron');
+const electron = require('electron');
 const shell = electron.shell;
 const ipc = electron.ipcRenderer;
-*/
+const { urlGraficos, urlEquacoes, urlSobre } = require('./app');
 
 const minimizeBtn = document.querySelector('#minBtn');
 const maximizeBtn = document.querySelector('#maxBtn');
@@ -33,12 +33,25 @@ maximizeBtn.addEventListener('click', function () {
     ipc.send('maximizeRestoreApp');
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const pathname = window.location.pathname;
     body.classList[localStorage.getItem('white')]('white');
     sidebar.classList[localStorage.getItem('close')]('close');
     mainApp.classList[localStorage.getItem('close')]('close');
-    graficos.checked = true;
+    switch (window.location.pathname) {
+        case urlGraficos:
+            graficos.checked = true;
+            console.log('Graficos');
+            break;
+        case urlEquacoes:
+            equacoes.checked = true;
+            console.log('Equações');
+            break;
+        case urlSobre:
+            sobre.checked = true;
+            console.log('Sobre');
+            break;
+    }
 });
 
 toggle.addEventListener('click', () => {
@@ -65,6 +78,16 @@ modeSwitch.addEventListener('click', () => {
     }
 });
 
+graficos.addEventListener('click', () => {
+    window.location.href = urlGraficos;
+});
+equacoes.addEventListener('click', () => {
+    window.location.href = urlEquacoes;
+});
+sobre.addEventListener('click', () => {
+    window.location.href = urlSobre;
+});
+console.log(window.location);
 /*
 instagram.addEventListener('click', () => {
     shell.openExternal('https://www.instagram.com/joao_vitosoaski/');
