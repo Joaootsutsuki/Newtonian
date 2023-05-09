@@ -1,4 +1,4 @@
-const canvas = document.querySelector('canvas');
+/*const canvas = document.querySelector('canvas');
 const menuButton = document.getElementById('toggle');
 const ctx = canvas.getContext('2d');
 
@@ -73,3 +73,5 @@ menuButton.addEventListener('click', () => {
 });
 
 resizeDraws();
+*/
+console.log('Estou falando do animation.js');

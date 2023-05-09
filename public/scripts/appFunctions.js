@@ -1,7 +1,7 @@
-const electron = require('electron');
-const shell = electron.shell;
-const ipc = electron.ipcRenderer;
-const { urlGraficos, urlEquacoes, urlSobre } = require('./app');
+//const electron = require('electron');
+//const shell = electron.shell;
+//const ipc = electron.ipcRenderer;
+//const { urlGraficos, urlEquacoes, urlSobre } = require('./app');
 
 const minimizeBtn = document.querySelector('#minBtn');
 const maximizeBtn = document.querySelector('#maxBtn');
@@ -21,6 +21,7 @@ const twitter = document.querySelector('.bxl-twitter');
 const linkedin = document.querySelector('.bxl-linkedin-square');
 const github = document.querySelector('.bxl-github');
 
+/*
 closeBtn.addEventListener('click', function () {
     ipc.send('closeApp');
 });
@@ -31,14 +32,14 @@ minimizeBtn.addEventListener('click', function () {
 
 maximizeBtn.addEventListener('click', function () {
     ipc.send('maximizeRestoreApp');
-});
+});*/
 
 window.addEventListener('DOMContentLoaded', () => {
     const pathname = window.location.pathname;
     body.classList[localStorage.getItem('white')]('white');
     sidebar.classList[localStorage.getItem('close')]('close');
     mainApp.classList[localStorage.getItem('close')]('close');
-    switch (window.location.pathname) {
+    /*switch (window.location.pathname) {
         case urlGraficos:
             graficos.checked = true;
             console.log('Graficos');
@@ -51,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
             sobre.checked = true;
             console.log('Sobre');
             break;
-    }
+    }*/
 });
 
 toggle.addEventListener('click', () => {
@@ -78,16 +79,6 @@ modeSwitch.addEventListener('click', () => {
     }
 });
 
-graficos.addEventListener('click', () => {
-    window.location.href = urlGraficos;
-});
-equacoes.addEventListener('click', () => {
-    window.location.href = urlEquacoes;
-});
-sobre.addEventListener('click', () => {
-    window.location.href = urlSobre;
-});
-console.log(window.location);
 /*
 instagram.addEventListener('click', () => {
     shell.openExternal('https://www.instagram.com/joao_vitosoaski/');
@@ -101,3 +92,4 @@ linkedin.addEventListener('click', () => {
 github.addEventListener('click', () => {
     shell.openExternal('https://github.com/Joaootsutsuki');
 });*/
+console.log('Estou falando do appFunctions.js');
