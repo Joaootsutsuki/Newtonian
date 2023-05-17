@@ -1,0 +1,73 @@
+.about-content {
+    grid-area: content;
+    display: grid;
+    background-color: var(--background-color);
+    grid: 14% 32% 32% 22% / 50% 50%;
+    grid-template-areas:
+        'title title'
+        'about-me myImg'
+        'appleImg about-newtonian'
+        'social-media social-media';
+    
+
+    .about-title {
+        grid-area: title;
+        text-align: center;
+        line-height: 96.5px;
+    }
+    .about-me {
+        grid-area: about-me;
+        padding: 0 0 0 45px;
+        @include flexContainer(column, center, center);
+    }
+    .myImg {
+        grid-area: myImg;
+        @include flexContainer(row, center, center);
+        padding: 0 8% 0 0;
+    }
+    .appleImg {
+        grid-area: appleImg;
+        @include flexContainer(row, center, center);
+        padding: 0 0 0 12%;
+    }
+    .about-newtonian {
+        grid-area: about-newtonian;
+        @include flexContainer(column, center, center);
+        padding: 0 45px 0 0;
+    }
+    .social-media {
+        grid-area: social-media;
+        @include flexContainer(row, center, center);
+        text-align: center;
+
+        .icon-social-media {
+            font-size: 30px;
+            color: var(--button-color01);
+            padding: 0 5px 0 5px;
+            cursor: pointer;
+            &:hover {
+                color: var(--button-hover);
+            }
+        }
+        ul {
+            display: inline-flex;
+            gap: 20px;
+            padding: 15px 0 0 0;
+        }
+        h3 {
+            padding: 15px 0 0 0;
+        }
+    }
+    p {
+        padding: 15px 0 0 0;
+    }
+    img{
+        height: 150px;
+    }
+}
+
+
+
+body.white .icon-social-media {
+    color: #695cfe;
+}

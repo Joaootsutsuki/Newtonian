@@ -5,7 +5,9 @@ const fs = require('fs');
 
 const navbar = fs.readFileSync('views/partials/navbar.ejs', 'utf-8');
 const menubar = fs.readFileSync('views/partials/menubar.ejs', 'utf-8');
-const content = fs.readFileSync('views/content-graficos.ejs', 'utf-8');
+const contentGraphic = fs.readFileSync('views/content-graphic.ejs', 'utf-8');
+const contentEquation = fs.readFileSync('views/content-equation.ejs', 'utf-8');
+const contentAbout = fs.readFileSync('views/content-about.ejs', 'utf-8');
 
 //File paths
 const pathLayout = path.join(__dirname, 'views/layout.ejs');
@@ -13,7 +15,7 @@ const pathPreload = path.join(__dirname, '/public/scripts/preload.js');
 
 ejse.data('navbar', navbar);
 ejse.data('menubar', menubar);
-ejse.data('content', content);
+ejse.data('content', contentGraphic);
 
 var win;
 async function createWindow() {
@@ -29,7 +31,7 @@ async function createWindow() {
             preload: pathPreload,
         },
     });
-    win.setAspectRatio(1.6);
+    win.setAspectRatio(1.77);
     await win.loadFile(pathLayout);
 }
 

@@ -1,0 +1,97 @@
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    --background-taskBar: #15191c;
+    --background-sidebar: #1b1f23;
+    --background-items: #1b1f23;
+    --background-color: #23282e;
+    --button-color01: #444d58;
+    --toggle-button: #272e35;
+    --mode-button-color: #272e35;
+    --background-radio-select: #272e35;
+    --button-hover: #373e47;
+    --font-color01: #ffffff;
+    --font-color02: #bbbdbf;
+    --click-color: #272e35;
+    --taskBar-button: #272e35;
+    --mode-dot: #272e35;
+}
+
+body.white {
+    --background-taskBar: #c8c7c6;
+    --background-sidebar: #ffffff;
+    --background-items: #ffffff;
+    --background-color: #f8f4f0;
+    --button-color01: #5c32d1;
+    --toggle-button: #695cfe;
+    --mode-button-color: #eceff0;
+    --background-radio-select: #c8c7c6;
+    --button-hover: #5c32d1;
+    --font-color01: #ffffff;
+    --font-color02: #474747;
+    --click-color: #eceff0;
+    --taskBar-button: #b7b7b7;
+    --mode-dot: #695cfe;
+}
+@mixin flexContainer($direction: row, $justify: normal, $align: normal) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+};
+@import 'base';
+@import 'taskbar';
+@import 'sidebar';
+@import 'contentGraphic';
+@import 'contentAbout';
+
+@media (min-width: 1400px) {
+    html{
+        font-size: 71.5%;
+    }
+    .animation-control-window{
+        gap: 10px;
+    }
+};
+@media (min-width: 1600px) {
+    html{
+        font-size: 80%;
+    }
+    .animation-control-window{
+        gap: 15px;
+    }
+};
+@media (min-width: 1920px) {
+    html{
+        font-size: 90%;
+    }
+};
+@media (min-width: 1920px) {
+    html{
+        font-size: 90%;
+    }
+};
+  
+
+@media (width: 1280px) and (height: 1024px) {
+
+    .graphic-content{
+        grid:  550px 450px 550px 550px/ 100%;
+        grid-template-areas: 'animation' 'animation-control' 'graphic-01' 'graphic-02';
+  }
+    .animation-control-grid{
+        grid-area: animation-control;
+        background-color: var(--background-color);
+        padding: 60px 35px 35px 22.5px;
+        width: 500px;
+        margin: 0 0 0 32%;
+  }
+    .graphic-02-grid{
+        padding: 25px 35px 25px 35px;
+  }
+}
+  

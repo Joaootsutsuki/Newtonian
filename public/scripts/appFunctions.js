@@ -1,8 +1,3 @@
-//const electron = require('electron');
-//const shell = electron.shell;
-//const ipc = electron.ipcRenderer;
-//const { urlGraficos, urlEquacoes, urlSobre } = require('./app');
-
 const minimizeBtn = document.querySelector('#minBtn');
 const maximizeBtn = document.querySelector('#maxBtn');
 const closeBtn = document.querySelector('#closeBtn');
@@ -34,36 +29,9 @@ maximizeBtn.addEventListener('click', function () {
     ipc.send('maximizeRestoreApp');
 });*/
 
-window.addEventListener('DOMContentLoaded', () => {
-    const pathname = window.location.pathname;
-    body.classList[localStorage.getItem('white')]('white');
-    sidebar.classList[localStorage.getItem('close')]('close');
-    mainApp.classList[localStorage.getItem('close')]('close');
-    /*switch (window.location.pathname) {
-        case urlGraficos:
-            graficos.checked = true;
-            console.log('Graficos');
-            break;
-        case urlEquacoes:
-            equacoes.checked = true;
-            console.log('Equações');
-            break;
-        case urlSobre:
-            sobre.checked = true;
-            console.log('Sobre');
-            break;
-    }*/
-});
-
 toggle.addEventListener('click', () => {
     if (sidebar.classList.contains('close') && mainApp.classList.contains('close')) {
-        localStorage.setItem('close', 'remove');
-        sidebar.classList[localStorage.getItem('close')]('close');
-        mainApp.classList[localStorage.getItem('close')]('close');
     } else {
-        localStorage.setItem('close', 'add');
-        sidebar.classList[localStorage.getItem('close')]('close');
-        mainApp.classList[localStorage.getItem('close')]('close');
     }
 });
 
@@ -92,4 +60,3 @@ linkedin.addEventListener('click', () => {
 github.addEventListener('click', () => {
     shell.openExternal('https://github.com/Joaootsutsuki');
 });*/
-console.log('Estou falando do appFunctions.js');

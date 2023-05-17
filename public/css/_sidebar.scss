@@ -1,0 +1,180 @@
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--background-sidebar);
+    grid-area: sideBar;
+    position: fixed;
+    top: 30px;
+
+    &.close{
+        width: 88px;
+
+        .toggle {
+            transform: translateY(-50%) rotate(0deg);
+            left: 30px;
+        }
+        .text{
+            opacity: 0;
+        }
+    }
+        
+    li {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .text {
+        font-size: 17px;
+        font-weight: 500;
+        white-space: nowrap;
+        opacity: 1;
+    }
+    
+    .toggle {
+        @include flexContainer(row, center, center);
+        position: absolute;
+        top: 30px;
+        left: 200px;
+        transform: translateY(-50%) rotate(180deg);
+        height: 32px;
+        width: 32px;
+        background-color: var(--toggle-button);
+        color: var(--font-color01);
+        border-radius: 15px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+   
+    .menu-bar {
+        height: calc(100% - 55px);
+        @include flexContainer(column, space-between);
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu {
+            margin-top: 40px;
+
+            .sidebar-radio {
+                display: none;
+            }
+            .label-sidebar {
+                @include flexContainer(row, normal, center);
+                list-style: none;
+                height: 100%;
+                background-color: transparent;
+                width: 100%;
+                border-radius: 6px;
+                text-decoration: none;
+
+                &:hover{
+                    background-color: var(--button-hover);
+                }
+                &:active{
+                    background-color: var(--click-color);
+                }
+            }
+            
+            
+        }
+
+        .icon {
+            @include flexContainer(row, center, center);
+            min-width: 60px;
+            border-radius: 6px;
+            height: 100%;
+            font-size: 20px;
+        
+        }
+
+        .mode {
+            border-radius: 6px;
+            background-color: var(--mode-button-color);
+            position: relative;
+
+            .sun-moon {
+                height: 50px;
+                width: 60px;
+            }
+            
+            i {
+                position: absolute;
+            }
+
+            .sun {
+                opacity: 1;
+            }
+            .moon {
+                opacity: 0;
+            }
+
+            .toggle-switch {
+                @include flexContainer(row, center, center);
+                position: absolute;
+                right: 0;
+                height: 100%;
+                min-width: 60px;
+                border-radius: 6px;
+                cursor: pointer;
+
+                .switch {
+                    position: relative;
+                    height: 22px;
+                    width: 40px;
+                    border-radius: 25px;
+                    background-color: var(--background-items);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 15px;
+                        width: 15px;
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 5px;
+                        transform: translateY(-50%);
+                        background-color: var(--mode-dot);
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+#graficos:checked ~ .label-graficos,
+#equacoes:checked ~ .label-equacoes,
+#sobre:checked ~ .label-sobre {
+    background-color: var(--button-color01);
+}
+#graficos:checked ~ .label-graficos .nav-text,
+#equacoes:checked ~ .label-equacoes .nav-text,
+#sobre:checked ~ .label-sobre .nav-text,
+#graficos:checked ~ .label-graficos .icon,
+#equacoes:checked ~ .label-equacoes .icon,
+#sobre:checked ~ .label-sobre .icon {
+    color: white;
+}
+body.white .label-sideBar:hover > .icon,
+body.white .label-sideBar:hover > .nav-text {
+    color: white;
+}
+
+
+body.white .mode .sun-moon i.sun {
+    opacity: 0;
+}
+body.white .mode .sun-moon i.moon {
+    opacity: 1;
+} 
+
+body.white .sidebar .menu-bar .mode .toggle-switch .switch::before {
+    left: 20px;
+}

@@ -1,0 +1,156 @@
+.graphic-content {
+    grid-area: content;
+    display: grid;
+    grid: 57% 42% / 50% 15% 35%;
+    grid-template-areas: 'animation animation animation-control' 'graphic-01 graphic-02 graphic-02';
+    background-color: var(--background-color);
+
+    .animation-grid {
+        grid-area: animation;
+        padding: 20px 15px 0px 35px;
+        min-width: 670px;
+        min-height: 395px;
+
+        canvas {
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+    }
+
+    .animation-control-grid {
+        grid-area: animation-control;
+        background-color: var(--background-color);
+        padding: 60px 35px 35px 22.5px;
+        min-width: 360px;
+        min-height: 395px;
+
+        .animation-control-window {
+            @include flexContainer(column, normal, center);
+            background-color: var(--background-color);
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: 10px 10px 21px #1e2228, -10px -10px 21px #282e34;
+
+            .animation-control-title {
+                font-size: 2rem;
+                padding: 20px 0 15px 0px;
+            }
+            .animation-control-radio-gravity,
+            .animation-control-radio-corpo {
+                @include flexContainer(row, center, center);
+                background-color: var(--background-radio-select);
+                width: 85%;
+                height: 14%;
+                border-radius: 5px;
+                font-size: 1.6rem;
+            }
+            .radio-inputs {
+                display: none;
+            }
+            
+            .label-control {
+                padding: 4px 7px 4px 7px;
+                margin: 0px 9px 0 9px;
+                border-radius: 5px;
+                &:hover {
+                    background-color: var(--button-color01);
+                }
+            }
+
+            .animation-control-buttons {
+                @include flexContainer(row, center, center);
+                width: 100%;
+                height: 30%;
+                gap: 4%;
+                
+                .animation-control-Btn {
+                    width: clamp(75px, 24%, 140px);
+                    height: clamp(30px, 44%, 50px);
+                    border-radius: 5px;
+                    border: 0;
+                    background-color: var(--button-color01);
+                    font-size: 1.6rem;
+                    margin: 0 5px 0 5px;
+                    &:hover {
+                        background-color: var(--button-hover);
+                    }
+                    &:active {
+                        background-color: var(--clic-color01);
+                    }
+                }
+            }
+            
+    
+        }
+    }
+
+    .graphic-01-grid {
+        grid-area: graphic-01;
+        background-color: var(--background-color);
+        padding: 20px 9.5px 25px 35px;
+        min-width: 515px;
+        min-height: 295px;
+    }
+    
+    .graphic-02-grid {
+        grid-area: graphic-02;
+        background-color: var(--background-color);
+        padding: 20px 35px 20px 9.5px;
+        min-width: 512px;
+        min-height: 295px;
+    }
+
+    .graphic-01-window,
+    .graphic-02-window {
+    background-color: var(--background-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 7px 7px 14px #1e2328, -7px -7px 14px #282d34;
+}
+}
+
+
+body.white .animation-control-Btn {
+    color: white;
+}
+body.white .animation-control-Btn:hover {
+    background-color: #7958d7;
+}
+body.white .animation-control-Btn:active {
+    background-color: #6435e5;
+}
+
+#terra:checked ~ .label-terra,
+#cilindro:checked ~ .label-cilindro,
+#lua:checked ~ .label-lua,
+#marte:checked ~ .label-marte,
+#sol:checked ~ .label-sol,
+#esfera:checked ~ .label-esfera,
+#cubo:checked ~ .label-cubo {
+    background-color: var(--button-color01);
+}
+
+body.white #cilindro:checked ~ .label-cilindro,
+body.white #cubo:checked ~ .label-cubo,
+body.white #esfera:checked ~ .label-esfera,
+body.white #sol:checked ~ .label-sol,
+body.white #marte:checked ~ .label-marte,
+body.white #lua:checked ~ .label-lua,
+body.white #terra:checked ~ .label-terra {
+    background-color: #eceff0;
+}
+
+body.white .label-control:hover {
+    background-color: #eceff0;
+}
+
+body.white .animation-window,
+body.white .animation-control-window,
+body.white .graphic-01-window,
+body.white .graphic-02-window {
+    box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+}

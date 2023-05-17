@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    list-style: none;
+    transition: all 0.3s ease;
+    user-select: none;
+    color: var(--font-color02);
+}
+
+.mainApp {
+    //TINHA O WIDTH: 100vw
+    height: 100vh;
+    display: grid;
+    grid: 30px auto / 250px auto;
+    grid-template-areas: 'taskBar  taskBar' 'sideBar content';
+}
+
+.mainApp.close {
+    grid: 30px auto / 88px auto;
+    grid-template-areas: 'taskBar  taskBar' 'sideBar content';
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #6c7276;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2c3135;
+    border-radius: 20px;
+}
