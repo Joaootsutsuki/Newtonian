@@ -43,7 +43,6 @@ body.white {
   box-sizing: border-box;
   font-family: Poppins, sans-serif;
   list-style: none;
-  transition: all 0.3s ease;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -55,16 +54,21 @@ body.white {
   display: grid;
   grid: 30px auto/250px auto;
   grid-template-areas: "taskBar  taskBar" "sideBar content";
+  transition: all 0.3s ease-out;
 }
-
-.mainApp.close {
+.mainApp.sidebar-close {
   grid: 30px auto/88px auto;
   grid-template-areas: "taskBar  taskBar" "sideBar content";
 }
-
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+.mainApp.sidebar-close .sidebar {
+  width: 88px;
+}
+.mainApp.sidebar-close .sidebar .toggle {
+  transform: translateY(-50%) rotate(0deg);
+  left: 30px;
+}
+.mainApp.sidebar-close .sidebar .text {
+  opacity: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -74,6 +78,10 @@ body.white {
 ::-webkit-scrollbar-thumb {
   background-color: #2c3135;
   border-radius: 20px;
+}
+
+.taskBar * {
+  transition: all 0.3s ease-out;
 }
 
 .taskBar {
@@ -88,6 +96,7 @@ body.white {
   -webkit-app-region: drag;
   grid-area: taskBar;
   position: fixed;
+  transition: all 0.3s ease-out;
 }
 .taskBar .titleBar {
   display: flex;
@@ -110,11 +119,11 @@ body.white {
 }
 .taskBar .btnsBar .buttonBar {
   cursor: pointer;
-  padding: 5px 15px 1px 15px;
+  padding: 5px 15px 0px 15px;
+  font-size: 16px;
 }
 .taskBar .btnsBar .buttonBar:hover {
   background-color: var(--taskBar-button);
-  transition: 0.5s ease;
 }
 .taskBar .btnsBar .closeWindow:hover {
   background-color: #ed4144;
@@ -122,6 +131,10 @@ body.white {
 .taskBar .btnsBar img {
   width: 15px;
   height: 15px;
+}
+
+.sidebar * {
+  transition: all 0.3s ease-out;
 }
 
 .sidebar {
@@ -132,16 +145,7 @@ body.white {
   grid-area: sideBar;
   position: fixed;
   top: 30px;
-}
-.sidebar.close {
-  width: 88px;
-}
-.sidebar.close .toggle {
-  transform: translateY(-50%) rotate(0deg);
-  left: 30px;
-}
-.sidebar.close .text {
-  opacity: 0;
+  transition: all 0.3s ease-out;
 }
 .sidebar li {
   height: 50px;
@@ -206,6 +210,11 @@ body.white {
 }
 .sidebar .menu-bar .menu .label-sidebar:active {
   background-color: var(--click-color);
+}
+.sidebar .menu-bar .menu #graphic:checked ~ .label-graphic,
+.sidebar .menu-bar .menu #equation:checked ~ .label-equation,
+.sidebar .menu-bar .menu #about:checked ~ .label-about {
+  background-color: #373e47;
 }
 .sidebar .menu-bar .icon {
   display: flex;
@@ -361,6 +370,7 @@ body.white .sidebar .menu-bar .mode .toggle-switch .switch::before {
 }
 .graphic-content .animation-control-grid .animation-control-window .label-control:hover {
   background-color: var(--button-color01);
+  transition: all 0.3s ease-out;
 }
 .graphic-content .animation-control-grid .animation-control-window .animation-control-buttons {
   display: flex;
@@ -382,6 +392,7 @@ body.white .sidebar .menu-bar .mode .toggle-switch .switch::before {
 }
 .graphic-content .animation-control-grid .animation-control-window .animation-control-buttons .animation-control-Btn:hover {
   background-color: var(--button-hover);
+  transition: all 0.3s ease-out;
 }
 .graphic-content .animation-control-grid .animation-control-window .animation-control-buttons .animation-control-Btn:active {
   background-color: var(--clic-color01);
@@ -421,23 +432,23 @@ body.white .animation-control-Btn:active {
   background-color: #6435e5;
 }
 
-#terra:checked ~ .label-terra,
-#cilindro:checked ~ .label-cilindro,
-#lua:checked ~ .label-lua,
-#marte:checked ~ .label-marte,
-#sol:checked ~ .label-sol,
-#esfera:checked ~ .label-esfera,
-#cubo:checked ~ .label-cubo {
+#earth:checked ~ .label-earth,
+#cylinder:checked ~ .label-cylinder,
+#moon:checked ~ .label-moon,
+#mars:checked ~ .label-mars,
+#sun:checked ~ .label-sun,
+#sphere:checked ~ .label-sphere,
+#cube:checked ~ .label-cube {
   background-color: var(--button-color01);
 }
 
-body.white #cilindro:checked ~ .label-cilindro,
-body.white #cubo:checked ~ .label-cubo,
-body.white #esfera:checked ~ .label-esfera,
-body.white #sol:checked ~ .label-sol,
-body.white #marte:checked ~ .label-marte,
-body.white #lua:checked ~ .label-lua,
-body.white #terra:checked ~ .label-terra {
+body.white #cylinder:checked ~ .label-cylinder,
+body.white #cube:checked ~ .label-cube,
+body.white #sphere:checked ~ .label-sphere,
+body.white #sun:checked ~ .label-sun,
+body.white #mars:checked ~ .label-mars,
+body.white #moon:checked ~ .label-moon,
+body.white #earth:checked ~ .label-earth {
   background-color: #eceff0;
 }
 
@@ -505,7 +516,7 @@ body.white .graphic-02-window {
   text-align: center;
 }
 .about-content .social-media .icon-social-media {
-  font-size: 30px;
+  font-size: 3rem;
   color: var(--button-color01);
   padding: 0 5px 0 5px;
   cursor: pointer;
@@ -553,24 +564,25 @@ body.white .icon-social-media {
     font-size: 90%;
   }
 }
-@media (min-width: 1920px) {
-  html {
-    font-size: 90%;
-  }
-}
 @media (width: 1280px) and (height: 1024px) {
+  html {
+    font-size: 80%;
+  }
   .graphic-content {
     grid: 550px 450px 550px 550px/100%;
     grid-template-areas: "animation" "animation-control" "graphic-01" "graphic-02";
   }
-  .animation-control-grid {
+  .graphic-content .animation-control-grid {
     grid-area: animation-control;
     background-color: var(--background-color);
     padding: 60px 35px 35px 22.5px;
     width: 500px;
     margin: 0 0 0 32%;
   }
-  .graphic-02-grid {
+  .graphic-content .graphic-02-grid, .graphic-content .graphic-01-grid {
     padding: 25px 35px 25px 35px;
+  }
+  .about-content img {
+    height: 200px;
   }
 }/*# sourceMappingURL=main.css.map */

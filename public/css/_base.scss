@@ -4,28 +4,35 @@
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
     list-style: none;
-    transition: all 0.3s ease;
     user-select: none;
     color: var(--font-color02);
 }
 
 .mainApp {
-    //TINHA O WIDTH: 100vw
     height: 100vh;
     display: grid;
     grid: 30px auto / 250px auto;
     grid-template-areas: 'taskBar  taskBar' 'sideBar content';
+    transition: all 0.3s ease-out;
+    &.sidebar-close {
+        grid: 30px auto / 88px auto;
+        grid-template-areas: 'taskBar  taskBar' 'sideBar content';
+
+        .sidebar {
+            width: 88px;
+
+            .toggle {
+                transform: translateY(-50%) rotate(0deg);
+                left: 30px;
+            }
+
+            .text {
+                opacity: 0;
+            }
+        }
+    }
 }
 
-.mainApp.close {
-    grid: 30px auto / 88px auto;
-    grid-template-areas: 'taskBar  taskBar' 'sideBar content';
-}
-
-::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-}
 
 ::-webkit-scrollbar-track {
     background: #6c7276;

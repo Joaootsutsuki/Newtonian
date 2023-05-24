@@ -1,3 +1,4 @@
+.sidebar * {transition: all 0.3s ease-out;}
 
 .sidebar {
     height: 100%;
@@ -7,19 +8,8 @@
     grid-area: sideBar;
     position: fixed;
     top: 30px;
+    transition: all 0.3s ease-out;
 
-    &.close{
-        width: 88px;
-
-        .toggle {
-            transform: translateY(-50%) rotate(0deg);
-            left: 30px;
-        }
-        .text{
-            opacity: 0;
-        }
-    }
-        
     li {
         height: 50px;
         display: flex;
@@ -33,7 +23,7 @@
         white-space: nowrap;
         opacity: 1;
     }
-    
+
     .toggle {
         @include flexContainer(row, center, center);
         position: absolute;
@@ -48,7 +38,7 @@
         font-size: 22px;
         cursor: pointer;
     }
-   
+
     .menu-bar {
         height: calc(100% - 55px);
         @include flexContainer(column, space-between);
@@ -64,6 +54,7 @@
             .sidebar-radio {
                 display: none;
             }
+
             .label-sidebar {
                 @include flexContainer(row, normal, center);
                 list-style: none;
@@ -73,15 +64,21 @@
                 border-radius: 6px;
                 text-decoration: none;
 
-                &:hover{
+                &:hover {
                     background-color: var(--button-hover);
                 }
-                &:active{
+
+                &:active {
                     background-color: var(--click-color);
                 }
+            
             }
-            
-            
+            #graphic:checked ~ .label-graphic,
+            #equation:checked ~ .label-equation,
+            #about:checked ~ .label-about {
+                background-color: #373e47;
+            }
+
         }
 
         .icon {
@@ -90,7 +87,6 @@
             border-radius: 6px;
             height: 100%;
             font-size: 20px;
-        
         }
 
         .mode {
@@ -102,7 +98,7 @@
                 height: 50px;
                 width: 60px;
             }
-            
+
             i {
                 position: absolute;
             }
@@ -110,6 +106,7 @@
             .sun {
                 opacity: 1;
             }
+
             .moon {
                 opacity: 0;
             }
@@ -143,11 +140,9 @@
                     }
                 }
             }
-
         }
     }
 }
-
 
 #graficos:checked ~ .label-graficos,
 #equacoes:checked ~ .label-equacoes,
@@ -178,3 +173,5 @@ body.white .mode .sun-moon i.moon {
 body.white .sidebar .menu-bar .mode .toggle-switch .switch::before {
     left: 20px;
 }
+
+

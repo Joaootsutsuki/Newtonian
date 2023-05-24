@@ -57,6 +57,7 @@
                 border-radius: 5px;
                 &:hover {
                     background-color: var(--button-color01);
+                    transition: all 0.3s ease-out;
                 }
             }
 
@@ -76,6 +77,7 @@
                     margin: 0 5px 0 5px;
                     &:hover {
                         background-color: var(--button-hover);
+                        transition: all 0.3s ease-out;
                     }
                     &:active {
                         background-color: var(--clic-color01);
@@ -124,23 +126,23 @@ body.white .animation-control-Btn:active {
     background-color: #6435e5;
 }
 
-#terra:checked ~ .label-terra,
-#cilindro:checked ~ .label-cilindro,
-#lua:checked ~ .label-lua,
-#marte:checked ~ .label-marte,
-#sol:checked ~ .label-sol,
-#esfera:checked ~ .label-esfera,
-#cubo:checked ~ .label-cubo {
+#earth:checked ~ .label-earth,
+#cylinder:checked ~ .label-cylinder,
+#moon:checked ~ .label-moon,
+#mars:checked ~ .label-mars,
+#sun:checked ~ .label-sun,
+#sphere:checked ~ .label-sphere,
+#cube:checked ~ .label-cube {
     background-color: var(--button-color01);
 }
 
-body.white #cilindro:checked ~ .label-cilindro,
-body.white #cubo:checked ~ .label-cubo,
-body.white #esfera:checked ~ .label-esfera,
-body.white #sol:checked ~ .label-sol,
-body.white #marte:checked ~ .label-marte,
-body.white #lua:checked ~ .label-lua,
-body.white #terra:checked ~ .label-terra {
+body.white #cylinder:checked ~ .label-cylinder,
+body.white #cube:checked ~ .label-cube,
+body.white #sphere:checked ~ .label-sphere,
+body.white #sun:checked ~ .label-sun,
+body.white #mars:checked ~ .label-mars,
+body.white #moon:checked ~ .label-moon,
+body.white #earth:checked ~ .label-earth {
     background-color: #eceff0;
 }
 

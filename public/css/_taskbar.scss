@@ -1,3 +1,4 @@
+.taskBar * {transition: all 0.3s ease-out;}
 .taskBar {
     width: 100%;
     height: 30px;
@@ -7,6 +8,7 @@
     -webkit-app-region: drag;
     grid-area: taskBar;
     position: fixed;
+    transition: all 0.3s ease-out;
 
     .titleBar {
         display: flex;
@@ -28,10 +30,10 @@
 
         .buttonBar {
             cursor: pointer;
-            padding: 5px 15px 1px 15px;
+            padding: 5px 15px 0px 15px;
+            font-size: 16px;
             &:hover {
                 background-color: var(--taskBar-button);
-                transition: 0.5s ease;
             }
         }
         .closeWindow{

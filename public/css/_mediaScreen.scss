@@ -1,0 +1,47 @@
+@media (min-width: 1400px) {
+    html{
+        font-size: 71.5%;
+    }
+    .animation-control-window{
+        gap: 10px;
+    }
+};
+@media (min-width: 1600px) {
+    html{
+        font-size: 80%;
+    }
+    .animation-control-window{
+        gap: 15px;
+    }
+};
+@media (min-width: 1920px) {
+    html{
+        font-size: 90%;
+    }
+};
+
+@media (width: 1280px) and (height: 1024px) {
+
+    html{
+        font-size: 80%;
+    }
+    .graphic-content{
+        grid:  550px 450px 550px 550px/ 100%;
+        grid-template-areas: 'animation' 'animation-control' 'graphic-01' 'graphic-02';
+
+        .animation-control-grid{
+            grid-area: animation-control;
+            background-color: var(--background-color);
+            padding: 60px 35px 35px 22.5px;
+            width: 500px;
+            margin: 0 0 0 32%;
+      }
+
+        .graphic-02-grid, .graphic-01-grid{
+            padding: 25px 35px 25px 35px;
+      }
+  }
+    .about-content img {
+        height: 200px;
+    }
+}
